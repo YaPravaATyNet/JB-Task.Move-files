@@ -15,13 +15,4 @@ public class NewStorage {
             failedUpload++;
         }
     }
-
-    public static String[] getFiles() throws IOException, InterruptedException {
-        String response = HttpClientFaulty.get(BASE_URL);
-        if (response == null) {
-            System.out.println("БЕБЕБЕ");
-        }
-        ObjectMapper mapper = new ObjectMapper();
-        return mapper.readValue(response, String[].class);
-    }
 }

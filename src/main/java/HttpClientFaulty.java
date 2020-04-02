@@ -7,7 +7,7 @@ import org.apache.http.util.EntityUtils;
 import java.io.IOException;
 
 public class HttpClientFaulty {
-    public static final int MAX_RETRY = 5;
+    public static final int MAX_RETRY = 10;
 
     public static String get(String URL) throws IOException, InterruptedException {
         Request request = Request.Get(URL);
@@ -20,19 +20,13 @@ public class HttpClientFaulty {
                 .build();
         Request request = Request.Post(URL).body(entity);
         String response = doRequest(request);
-        if (response == null) {
-            return false;
-        }
-        return true;
+        return response != null;
     }
 
     public static boolean delete(String URL) throws IOException, InterruptedException {
         Request request = Request.Delete(URL);
         String response = doRequest(request);
-        if (response == null) {
-            return false;
-        }
-        return true;
+        return response != null;
     }
 
     public static String doRequest(Request request) throws IOException, InterruptedException {
