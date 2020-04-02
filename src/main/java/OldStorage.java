@@ -23,7 +23,7 @@ public class OldStorage {
         if (HttpClientFaulty.delete(BASE_URL + fileName)){
             successDelete++;
         } else {
-            System.err.println("Unable to delete " + fileName);
+            System.out.println("Unable to delete " + fileName);
             failedDelete++;
         }
     }
